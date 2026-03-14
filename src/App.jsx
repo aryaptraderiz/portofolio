@@ -129,7 +129,7 @@ function App() {
                 <h2 className="text-3xl md:text-4xl font-bold text-white mb-5">About Me</h2>
 
                 <BlurText
-                  text="I'm Arya Putra Deriz, a full-stack developer passionate about building modern, high-performance applications with an intuitive user experience. I enjoy working with the latest technologies blending creativity with precision to deliver impactful solutions. I'm committed to helping users and businesses grow in the digital era through functional, aesthetic, and scalable digital products."
+                  text="I'm Arya Putra Aderiz, a full-stack developer passionate about building modern, high-performance applications with an intuitive user experience. I enjoy working with the latest technologies blending creativity with precision to deliver impactful solutions. I'm committed to helping users and businesses grow in the digital era through functional, aesthetic, and scalable digital products."
                   delay={150}
                   animateBy="words"
                   direction="top"
