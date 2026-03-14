@@ -61,7 +61,7 @@ export const listTools = [
 // ── PROJECTS ──
 // Gambar project ada di /public/assets/proyek/
 // Ganti gambar, judul, deskripsi, dan URL sesuai project kamu
-import Proyek1 from "/assets/proyek/proyek1.jpg";
+import Proyek1 from "/assets/proyek/brewy.jpg";
 import Proyek2 from "/assets/proyek/proyek2.jpg";
 import Proyek3 from "/assets/proyek/proyek3.jpg";
 import Proyek4 from "/assets/proyek/proyek4.jpg";
