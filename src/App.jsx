@@ -83,7 +83,6 @@ function App() {
             />
 
             <div className="flex items-center sm:gap-4 gap-2">
-              {/* ⬇️ Ganti href ke file CV kamu, taruh di public/assets/CV.pdf */}
               <a
                 href="./assets/CV.pdf"
                 download="Arya_Putra_Aderiz_CV.pdf"
@@ -139,7 +138,6 @@ function App() {
                 {/* Stats */}
                 <div className="flex flex-col sm:flex-row items-center sm:justify-between text-center sm:text-left gap-y-8 sm:gap-y-0 mb-4 w-full">
                   <div>
-                    {/* ⬇️ Ganti angka sesuai kamu */}
                     <h1 className="text-3xl md:text-4xl mb-1">10<span className="text-violet-500">+</span></h1>
                     <p>Project Finished</p>
                   </div>
@@ -148,7 +146,6 @@ function App() {
                     <p>Years of Experience</p>
                   </div>
                   <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600" data-aos-once="true">
-                    {/* ⬇️ Ganti GPA kamu */}
                     <h1 className="text-3xl md:text-4xl mb-1">3.22<span className="text-violet-500">/4.00</span></h1>
                     <p>GPA</p>
                   </div>
@@ -220,6 +217,19 @@ function App() {
           </div>
         </div>
 
+        {/* See More Projects */}
+        <div className="flex justify-center mt-10" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
+          <a
+            href="https://github.com/aryaptraderiz"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 px-8 py-4 rounded-full border border-zinc-600 hover:border-violet-500 hover:bg-zinc-800 transition-all duration-300 font-semibold text-white group"
+          >
+            <ShinyText text="See More Projects" disabled={false} speed={3} className="custom-class" />
+            <i className="ri-github-fill text-xl group-hover:text-violet-400 transition-colors"></i>
+          </a>
+        </div>
+
         {/* ── CONTACT ── */}
         <div className="kontak mt-32 sm:p-10 p-0" id="contact">
           <h1 className="text-4xl mb-2 font-bold text-center" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
@@ -235,7 +245,6 @@ function App() {
             </div>
 
             <div className="flex-1">
-              {/* ⬇️ Ganti email kamu di action formsubmit */}
               <form
                 action="https://formsubmit.co/aryaputraderiz@gmail.com"
                 method="POST"
