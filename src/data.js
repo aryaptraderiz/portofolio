@@ -27,6 +27,7 @@ import Tools20 from "/assets/tools/dart.svg";
 import Tools21 from "/assets/tools/flutter.png";
 import Tools22 from "/assets/tools/office365.png";
 import Tools23 from "/assets/tools/mongodb.png";
+import Tools24 from "/assets/tools/neo4j.png";
 
 
 export const listTools = [
@@ -53,6 +54,7 @@ export const listTools = [
   { id: 21, gambar: Tools21, nama: "Flutter",            ket: "Framework",          dad: "1900" },
   { id: 22, gambar: Tools22, nama: "Office 365",         ket: "Office Tools",       dad: "1900" },
   { id: 23, gambar: Tools23, nama: "MongoDB",            ket: "Database",           dad: "1900" },
+  { id: 24, gambar: Tools24, nama: "Neo4j",              ket: "Database",           dad: "1900" },
 ];
 
 
@@ -71,11 +73,11 @@ export const listProyek = [
     id: 1,
     image: Proyek1,
     title: "Brewy",                          // ← Ganti judul
-    subtitle: "Deskripsi singkat project 1...",  // ← Ganti subtitle
-    fullDescription: "Deskripsi lengkap project 1. Ceritakan apa yang kamu buat, teknologi yang dipakai, dan dampaknya.",
+    subtitle: "",  // ← Ganti subtitle
+    fullDescription: "Brewy POS is a personal project — a Point of Sale mobile application built for coffee shops and restaurants. It features a product catalog with category filters, cart management, QRIS digital payment integration, automatic receipt generation, and a transaction report dashboard with daily, weekly, and monthly filters. Built with Flutter, Firebase, and Dart.",
     borderColor: "#3B82F6",
     gradient: "linear-gradient(145deg, #3B82F6, #000)",
-    url: "https://github.com/aryaptraderiz",      // ← Ganti URL GitHub/Live
+    url: "https://github.com/aryaptraderiz/Brewy",      // ← Ganti URL GitHub/Live
     dad: "100",
   },
   {
