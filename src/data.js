@@ -67,6 +67,226 @@ import Proyek3 from "/assets/proyek/proyek3.jpg";
 import Proyek4 from "/assets/proyek/proyek4.jpg";
 import Proyek5 from "/assets/proyek/proyek5.jpg";
 import Proyek6 from "/assets/proyek/proyek6.jpg";
+import Certificate1Preview from "/assets/certificates/ccna-switching-routing-wireless-essentials-preview.png";
+import Certificate1Pdf from "/assets/certificates/ccna-switching-routing-wireless-essentials.pdf";
+import EthicalHackingPreview from "/assets/certificates/ethical-hacking-practice-project-questions-preview.jpeg";
+import DataAnalyticsPreview from "/assets/certificates/introduction-to-data-analytics-preview.jpeg";
+import BusinessIntelligencePreview from "/assets/certificates/business-intelligence-bi-essentials-preview.jpeg";
+import SystemAdministrationPreview from "/assets/certificates/system-administration-it-infrastructure-services-preview.jpeg";
+import ExcelSkillsAdvancedPreview from "/assets/certificates/excel-skills-for-business-advanced-preview.jpeg";
+import ExcelSkillsIntermediateIIPreview from "/assets/certificates/excel-skills-for-business-intermediate-ii-preview.jpeg";
+import FoundationsProjectManagementPreview from "/assets/certificates/foundations-of-project-management-preview.jpeg";
+import PythonDataEngineeringPreview from "/assets/certificates/python-project-for-data-engineering-preview.jpeg";
+import BudgetExcelPreview from "/assets/certificates/creating-a-budget-with-microsoft-excel-preview.jpeg";
+import CSharpUnityPreview from "/assets/certificates/introduction-to-csharp-programming-and-unity-preview.jpeg";
+import ExcelSkillsEssentialsPreview from "/assets/certificates/excel-skills-for-business-essentials-preview.jpeg";
+import ExcelSkillsIntermediateIPreview from "/assets/certificates/excel-skills-for-business-intermediate-i-preview.jpeg";
+import IntroductionProjectManagementPreview from "/assets/certificates/introduction-to-project-management-preview.jpeg";
+import NetworkSecurityPreview from "/assets/certificates/connect-and-protect-networks-and-network-security-preview.jpeg";
+import CybersecurityNetworkDefensePreview from "/assets/certificates/cybersecurity-and-network-defense-fundamentals-preview.jpeg";
+import FoundationsDataPreview from "/assets/certificates/foundations-data-data-everywhere-preview.jpeg";
+import IotEnabledFarmingPreview from "/assets/certificates/iot-enabled-farming-preview.jpeg";
+
+export const listCertificates = [
+  {
+    id: 1,
+    title: "CCNA: Switching, Routing, and Wireless Essentials",
+    issuer: "Cisco Networking Academy",
+    date: "03 Mar 2026",
+    description: "Completed networking training focused on switching concepts, routing fundamentals, wireless networking, VLANs, inter-VLAN routing, and essential network configuration skills.",
+    skills: ["Networking", "Routing", "Switching", "Wireless"],
+    previewImage: Certificate1Preview,
+    credentialUrl: Certificate1Pdf,
+    dad: "100",
+  },
+  {
+    id: 2,
+    title: "Ethical Hacking Practice Project & Questions",
+    issuer: "LearnKartS - Coursera",
+    date: "17 May 2026",
+    description: "Completed an ethical hacking practice course covering hands-on security questions and project-based learning through Coursera.",
+    skills: ["Ethical Hacking", "Cybersecurity", "Security Practice", "Coursera"],
+    previewImage: EthicalHackingPreview,
+    credentialUrl: "https://www.coursera.org/account/accomplishments/verify/TJPEGPJJH6P6",
+    dad: "200",
+  },
+  {
+    id: 3,
+    title: "Introduction to Data Analytics",
+    issuer: "Meta - Coursera",
+    date: "07 Aug 2026",
+    description: "Completed an introductory data analytics course covering foundational analytics concepts and practical data-driven thinking through Coursera.",
+    skills: ["Data Analytics", "Data Analysis", "Meta", "Coursera"],
+    previewImage: DataAnalyticsPreview,
+    credentialUrl: "https://www.coursera.org/account/accomplishments/verify/VT9QU4Z9OQF4",
+    dad: "300",
+  },
+  {
+    id: 4,
+    title: "Business Intelligence (BI) Essentials",
+    issuer: "IBM - Coursera",
+    date: "07 Jun 2026",
+    description: "Completed a business intelligence essentials course covering foundational BI concepts, data-driven decision making, and analytics practices through Coursera.",
+    skills: ["Business Intelligence", "Data Analytics", "BI", "IBM"],
+    previewImage: BusinessIntelligencePreview,
+    credentialUrl: "https://www.coursera.org/account/accomplishments/verify/ULV77J9KNVF1",
+    dad: "400",
+  },
+  {
+    id: 5,
+    title: "System Administration and IT Infrastructure Services",
+    issuer: "Google - Coursera",
+    date: "03 Jul 2026",
+    description: "Completed a Google course focused on system administration, IT infrastructure services, and foundational IT operations through Coursera.",
+    skills: ["System Administration", "IT Infrastructure", "IT Operations", "Google"],
+    previewImage: SystemAdministrationPreview,
+    credentialUrl: "https://www.coursera.org/account/accomplishments/verify/QI1SELZ84BHF",
+    dad: "500",
+  },
+  {
+    id: 6,
+    title: "Excel Skills for Business: Advanced",
+    issuer: "Macquarie University - Coursera",
+    date: "22 Jun 2026",
+    description: "Completed an advanced Excel course focused on business spreadsheet skills, analytical workflows, and practical productivity techniques through Coursera.",
+    skills: ["Microsoft Excel", "Spreadsheet Analysis", "Business Analytics", "Macquarie University"],
+    previewImage: ExcelSkillsAdvancedPreview,
+    credentialUrl: "https://www.coursera.org/account/accomplishments/records/TQWKSUPJRCLC",
+    dad: "600",
+  },
+  {
+    id: 7,
+    title: "Excel Skills for Business: Intermediate II",
+    issuer: "Macquarie University - Coursera",
+    date: "05 Jun 2026",
+    description: "Completed an intermediate Excel course focused on business spreadsheet skills, data handling, formulas, and practical analysis workflows through Coursera.",
+    skills: ["Microsoft Excel", "Spreadsheet Analysis", "Business Analytics", "Macquarie University"],
+    previewImage: ExcelSkillsIntermediateIIPreview,
+    credentialUrl: "https://www.coursera.org/account/accomplishments/records/IB59WQJ8IJT3",
+    dad: "700",
+  },
+  {
+    id: 8,
+    title: "Foundations of Project Management",
+    issuer: "Google - Coursera",
+    date: "29 May 2026",
+    description: "Completed a Google course covering project management foundations, core terminology, project lifecycle concepts, and practical ways to organize work through Coursera.",
+    skills: ["Project Management", "Planning", "Project Lifecycle", "Google"],
+    previewImage: FoundationsProjectManagementPreview,
+    credentialUrl: "https://www.coursera.org/account/accomplishments/records/JJGCS6RZG2KX",
+    dad: "800",
+  },
+  {
+    id: 9,
+    title: "Python Project for Data Engineering",
+    issuer: "IBM - Coursera",
+    date: "29 May 2026",
+    description: "Completed an IBM project-based course focused on using Python for data engineering workflows and practical data processing through Coursera.",
+    skills: ["Python", "Data Engineering", "Data Processing", "IBM"],
+    previewImage: PythonDataEngineeringPreview,
+    credentialUrl: "https://www.coursera.org/account/accomplishments/verify/MB6H00GGU29O",
+    dad: "900",
+  },
+  {
+    id: 10,
+    title: "Creating a Budget with Microsoft Excel",
+    issuer: "Coursera Project Network - Coursera",
+    date: "10 May 2026",
+    description: "Completed a Coursera project focused on creating and managing a budget with Microsoft Excel using practical spreadsheet workflows.",
+    skills: ["Microsoft Excel", "Budgeting", "Spreadsheets", "Financial Planning"],
+    previewImage: BudgetExcelPreview,
+    credentialUrl: "https://www.coursera.org/account/accomplishments/records/JFYECJAPY3BZ",
+    dad: "1000",
+  },
+  {
+    id: 11,
+    title: "Introduction to C# Programming and Unity",
+    issuer: "University of Colorado System - Coursera",
+    date: "16 May 2026",
+    description: "Completed an introductory course covering C# programming fundamentals and Unity development concepts through Coursera.",
+    skills: ["C#", "Unity", "Game Development", "Programming"],
+    previewImage: CSharpUnityPreview,
+    credentialUrl: "https://www.coursera.org/account/accomplishments/records/ZFB84JT0CB2P",
+    dad: "1100",
+  },
+  {
+    id: 12,
+    title: "Excel Skills for Business: Essentials",
+    issuer: "Macquarie University - Coursera",
+    date: "22 May 2026",
+    description: "Completed an essentials-level Excel course focused on core spreadsheet skills, formulas, formatting, and practical business workflows through Coursera.",
+    skills: ["Microsoft Excel", "Spreadsheets", "Business Analytics", "Macquarie University"],
+    previewImage: ExcelSkillsEssentialsPreview,
+    credentialUrl: "https://www.coursera.org/account/accomplishments/verify/LHSZ5QNVF80S",
+    dad: "1200",
+  },
+  {
+    id: 13,
+    title: "Excel Skills for Business: Intermediate I",
+    issuer: "Macquarie University - Coursera",
+    date: "27 May 2026",
+    description: "Completed an intermediate Excel course focused on business spreadsheet skills, formulas, data organization, and practical analysis workflows through Coursera.",
+    skills: ["Microsoft Excel", "Spreadsheets", "Business Analytics", "Macquarie University"],
+    previewImage: ExcelSkillsIntermediateIPreview,
+    credentialUrl: "https://www.coursera.org/account/accomplishments/records/SO4RWIAW25LP",
+    dad: "1300",
+  },
+  {
+    id: 14,
+    title: "Introduction to Project Management",
+    issuer: "IBM - Coursera",
+    date: "27 Mar 2026",
+    description: "Completed an IBM course covering project management fundamentals, planning concepts, collaboration, and practical ways to organize project work through Coursera.",
+    skills: ["Project Management", "Planning", "Collaboration", "IBM"],
+    previewImage: IntroductionProjectManagementPreview,
+    credentialUrl: "https://www.coursera.org/account/accomplishments/verify/T9LO55BXRX1T",
+    dad: "1400",
+  },
+  {
+    id: 15,
+    title: "Connect and Protect: Networks and Network Security",
+    issuer: "Google - Coursera",
+    date: "18 Mar 2026",
+    description: "Completed a Google course focused on network fundamentals, network security concepts, threat protection, and practical cybersecurity foundations through Coursera.",
+    skills: ["Network Security", "Cybersecurity", "Networking", "Google"],
+    previewImage: NetworkSecurityPreview,
+    credentialUrl: "https://www.coursera.org/account/accomplishments/records/PD8AE5PTOUIJ",
+    dad: "1500",
+  },
+  {
+    id: 16,
+    title: "Cybersecurity and Network Defense Fundamentals",
+    issuer: "Edureka - Coursera",
+    date: "18 Mar 2026",
+    description: "Completed an Edureka course covering cybersecurity fundamentals, network defense concepts, and practical security awareness through Coursera.",
+    skills: ["Cybersecurity", "Network Defense", "Network Security", "Edureka"],
+    previewImage: CybersecurityNetworkDefensePreview,
+    credentialUrl: "https://www.coursera.org/account/accomplishments/verify/46T0KL4XNEYE",
+    dad: "1600",
+  },
+  {
+    id: 17,
+    title: "Foundations: Data, Data, Everywhere",
+    issuer: "Google - Coursera",
+    date: "13 Mar 2026",
+    description: "Completed a Google course covering data analytics foundations, the role of data in decision making, and core concepts for working with data through Coursera.",
+    skills: ["Data Analytics", "Data Foundations", "Decision Making", "Google"],
+    previewImage: FoundationsDataPreview,
+    credentialUrl: "https://www.coursera.org/account/accomplishments/records/QZ77M8UDFH3D",
+    dad: "1700",
+  },
+  {
+    id: 18,
+    title: "IoT Enabled Farming",
+    issuer: "EDUCBA - Coursera",
+    date: "16 Mar 2026",
+    description: "Completed an EDUCBA course covering IoT-enabled farming concepts, smart agriculture use cases, and connected technology applications through Coursera.",
+    skills: ["IoT", "Smart Agriculture", "Connected Devices", "EDUCBA"],
+    previewImage: IotEnabledFarmingPreview,
+    credentialUrl: "https://www.coursera.org/account/accomplishments/records/KP915WARRUHY",
+    dad: "1800",
+  },
+];
 
 export const listProyek = [
   {

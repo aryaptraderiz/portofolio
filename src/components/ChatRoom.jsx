@@ -14,6 +14,8 @@ export default function ChatRoom() {
   const [user, setUser] = useState(null);
   const [message, setMessage] = useState("");
   const [messages, setMessages] = useState([]);
+  const [isSending, setIsSending] = useState(false);
+  const [error, setError] = useState("");
 
   // Cek login
   useEffect(() => {
@@ -24,30 +26,59 @@ export default function ChatRoom() {
   // Ambil pesan real-time
   useEffect(() => {
     const q = query(collection(db, "messages"), orderBy("createdAt"));
-    const unsub = onSnapshot(q, (snapshot) => {
-      setMessages(snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })));
-    });
+    const unsub = onSnapshot(
+      q,
+      (snapshot) => {
+        setMessages(snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })));
+        setError("");
+      },
+      () => {
+        setError("Gagal memuat pesan. Cek koneksi atau Firestore rules.");
+      }
+    );
     return () => unsub();
   }, []);
 
   // Kirim pesan
   const sendMessage = async (e) => {
     e.preventDefault();
-    if (!message.trim()) return;
+    const cleanMessage = message.trim();
+    if (!cleanMessage || isSending) return;
+    if (!user) {
+      setError("Login dulu untuk mengirim pesan.");
+      return;
+    }
 
-    await addDoc(collection(db, "messages"), {
-      text: message,
-      uid: user.uid,
-      displayName: user.displayName,
-      photoURL: user.photoURL,
-      createdAt: serverTimestamp()
-    });
-    setMessage("");
+    try {
+      setIsSending(true);
+      setError("");
+      await addDoc(collection(db, "messages"), {
+        text: cleanMessage,
+        uid: user.uid,
+        displayName: user.displayName || "Anonymous",
+        photoURL: user.photoURL || "",
+        createdAt: serverTimestamp()
+      });
+      setMessage("");
+    } catch (err) {
+      setError(
+        err?.code === "permission-denied"
+          ? "Pesan gagal dikirim karena Firestore rules belum mengizinkan user login menulis pesan."
+          : "Pesan gagal dikirim. Coba lagi beberapa saat."
+      );
+    } finally {
+      setIsSending(false);
+    }
   };
 
   return (
     <div className="bg-zinc-900 border border-gray-700 p-6 rounded-xl shadow-lg max-w-xl mx-auto mt-5">
       <h2 className="text-2xl font-bold text-center mb-4 text-white">💬 Chat Room</h2>
+      {error && (
+        <div className="mb-4 rounded-lg border border-red-500/50 bg-red-500/10 p-3 text-sm text-red-200">
+          {error}
+        </div>
+      )}
 
       {/* Header user */}
       {user && (
@@ -112,9 +143,10 @@ export default function ChatRoom() {
           />
           <button
             type="submit"
-            className="bg-green-600 px-4 py-2 rounded-lg text-white hover:bg-green-700 w-full sm:w-auto"
+            disabled={isSending || !message.trim()}
+            className="bg-green-600 px-4 py-2 rounded-lg text-white hover:bg-green-700 disabled:cursor-not-allowed disabled:opacity-60 w-full sm:w-auto"
           >
-            Send
+            {isSending ? "Sending..." : "Send"}
           </button>
         </form>
       ) : (

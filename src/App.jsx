@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import ProfileCard from "./components/ProfileCard/ProfileCard";
 import ShinyText from "./components/ShinyText/ShinyText";
 import BlurText from "./components/BlurText/BlurText";
@@ -6,7 +6,7 @@ import ScrambledText from "./components/ScrambledText/ScrambledText";
 import SplitText from "./components/SplitText/SplitText";
 import Lanyard from "./components/Lanyard/Lanyard";
 import GlassIcons from "./components/GlassIcons/GlassIcons";
-import { listTools, listProyek } from "./data";
+import { listTools, listProyek, listCertificates } from "./data";
 import ChromaGrid from "./components/ChromaGrid/ChromaGrid";
 import ProjectModal from "./components/ProjectModal/ProjectModal";
 import Aurora from "./components/Aurora/Aurora";
@@ -17,12 +17,40 @@ import 'aos/dist/aos.css';
 AOS.init();
 
 function App() {
-  const aboutRef = useRef(null);
-  const [isVisible, setIsVisible] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
+  const [contactStatus, setContactStatus] = useState("");
+  const [isContactSending, setIsContactSending] = useState(false);
 
   const handleProjectClick = (project) => setSelectedProject(project);
   const handleCloseModal = () => setSelectedProject(null);
+  const handleContactSubmit = async (e) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      setIsContactSending(true);
+      setContactStatus("");
+      const response = await fetch("https://formsubmit.co/ajax/aryaputraderiz@gmail.com", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+        },
+        body: formData,
+      });
+
+      if (!response.ok) {
+        throw new Error("Form submit failed");
+      }
+
+      form.reset();
+      setContactStatus("Message sent successfully. Thank you!");
+    } catch {
+      setContactStatus("Message failed to send. Please try again later.");
+    } finally {
+      setIsContactSending(false);
+    }
+  };
 
   useEffect(() => {
     const isReload =
@@ -31,20 +59,6 @@ function App() {
       const baseUrl = window.location.origin + "/portofolio/";
       window.location.replace(baseUrl);
     }
-  }, []);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.2 }
-    );
-    if (aboutRef.current) observer.observe(aboutRef.current);
-    return () => observer.disconnect();
   }, []);
 
   return (
@@ -146,7 +160,7 @@ function App() {
                     <p>Years of Experience</p>
                   </div>
                   <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600" data-aos-once="true">
-                    <h1 className="text-3xl md:text-4xl mb-1">3.22<span className="text-violet-500">/4.00</span></h1>
+                    <h1 className="text-3xl md:text-4xl mb-1">3.28<span className="text-violet-500">/4.00</span></h1>
                     <p>GPA</p>
                   </div>
                 </div>
@@ -194,6 +208,78 @@ function App() {
                   <p className="text-sm text-zinc-400 truncate">{tool.ket}</p>
                 </div>
               </div>
+            ))}
+          </div>
+        </div>
+
+        {/* CERTIFICATES */}
+        <div className="sertifikat mt-32" id="certificate">
+          <h1 className="text-4xl/snug font-bold mb-4" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
+            Certificates
+          </h1>
+          <p className="w-full md:w-2/5 text-base/loose opacity-50" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300" data-aos-once="true">
+            Professional certificates and learning achievements that support my growth as a developer.
+          </p>
+
+          <div className="sertifikat-box mt-14 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5">
+            {listCertificates.map((certificate) => (
+              <article
+                key={certificate.id}
+                data-aos="fade-up"
+                data-aos-duration="1000"
+                data-aos-delay={certificate.dad}
+                data-aos-once="true"
+                className="group relative overflow-hidden rounded-xl border border-zinc-700 bg-zinc-900/60 shadow-lg backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-violet-500/70 hover:bg-zinc-800/80"
+              >
+                {certificate.previewImage && (
+                  <a
+                    href={certificate.credentialUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block overflow-hidden border-b border-zinc-700 bg-white"
+                    aria-label={`Open ${certificate.title} certificate`}
+                  >
+                    <img
+                      src={certificate.previewImage}
+                      alt={`${certificate.title} preview`}
+                      className="aspect-[16/10] w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </a>
+                )}
+
+                <div className="p-6">
+                  <div className="mb-5 flex items-start justify-between gap-4">
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-violet-500/15 text-violet-300 ring-1 ring-violet-500/30">
+                      <i className="ri-award-line text-2xl"></i>
+                    </div>
+                    <span className="rounded-full border border-zinc-600 px-3 py-1 text-sm text-zinc-300">
+                      {certificate.date}
+                    </span>
+                  </div>
+
+                  <h2 className="mb-2 text-xl font-semibold text-white">{certificate.title}</h2>
+                  <p className="mb-4 text-sm font-medium text-violet-300">{certificate.issuer}</p>
+                  <p className="mb-5 text-sm leading-relaxed text-zinc-400">{certificate.description}</p>
+
+                  <div className="mb-6 flex flex-wrap gap-2">
+                    {certificate.skills.map((skill) => (
+                      <span key={skill} className="rounded-full bg-zinc-800 px-3 py-1 text-xs text-zinc-300 ring-1 ring-zinc-700">
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+
+                  <a
+                    href={certificate.credentialUrl}
+                    target={certificate.credentialUrl === "#" ? undefined : "_blank"}
+                    rel={certificate.credentialUrl === "#" ? undefined : "noopener noreferrer"}
+                    className="inline-flex items-center gap-2 font-semibold text-white transition-colors duration-300 hover:text-violet-300"
+                  >
+                    <ShinyText text="View Credential" disabled={false} speed={3} className="custom-class" />
+                    <i className="ri-arrow-right-up-line text-lg"></i>
+                  </a>
+                </div>
+              </article>
             ))}
           </div>
         </div>
@@ -248,10 +334,13 @@ function App() {
               <form
                 action="https://formsubmit.co/aryaputraderiz@gmail.com"
                 method="POST"
+                onSubmit={handleContactSubmit}
                 className="bg-zinc-800 p-10 w-full rounded-md"
                 autoComplete="off"
                 data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500" data-aos-once="true"
               >
+                <input type="hidden" name="_subject" value="New message from Arya Portfolio" />
+                <input type="hidden" name="_captcha" value="false" />
                 <div className="flex flex-col gap-6">
                   <div className="flex flex-col gap-2">
                     <label className="font-semibold">Full Name</label>
@@ -265,9 +354,18 @@ function App() {
                     <label htmlFor="message" className="font-semibold">Message</label>
                     <textarea name="message" id="message" cols="45" rows="7" placeholder="Message..." className="border border-zinc-500 p-2 rounded-md" required></textarea>
                   </div>
+                  {contactStatus && (
+                    <p className={`text-sm ${contactStatus.includes("successfully") ? "text-green-300" : "text-red-300"}`}>
+                      {contactStatus}
+                    </p>
+                  )}
                   <div className="text-center">
-                    <button type="submit" className="font-semibold bg-[#1a1a1a] p-4 px-6 rounded-full w-full cursor-pointer border border-gray-700 hover:bg-[#222] transition-colors">
-                      <ShinyText text="Send" disabled={false} speed={3} className="custom-class" />
+                    <button
+                      type="submit"
+                      disabled={isContactSending}
+                      className="font-semibold bg-[#1a1a1a] p-4 px-6 rounded-full w-full cursor-pointer border border-gray-700 hover:bg-[#222] disabled:cursor-not-allowed disabled:opacity-60 transition-colors"
+                    >
+                      <ShinyText text={isContactSending ? "Sending..." : "Send"} disabled={false} speed={3} className="custom-class" />
                     </button>
                   </div>
                 </div>
