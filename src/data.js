@@ -86,6 +86,8 @@ import NetworkSecurityPreview from "/assets/certificates/connect-and-protect-net
 import CybersecurityNetworkDefensePreview from "/assets/certificates/cybersecurity-and-network-defense-fundamentals-preview.jpeg";
 import FoundationsDataPreview from "/assets/certificates/foundations-data-data-everywhere-preview.jpeg";
 import IotEnabledFarmingPreview from "/assets/certificates/iot-enabled-farming-preview.jpeg";
+import PythonDevOpsPreview from "/assets/certificates/introduction-to-python-for-devops-preview.jpg";
+import LaravelPhpPreview from "/assets/certificates/master-fullstack-web-development-laravel-php-preview.jpg";
 
 export const listCertificates = [
   {
@@ -285,6 +287,28 @@ export const listCertificates = [
     previewImage: IotEnabledFarmingPreview,
     credentialUrl: "https://www.coursera.org/account/accomplishments/records/KP915WARRUHY",
     dad: "1800",
+  },
+  {
+    id: 19,
+    title: "Introduction to Python for DevOps",
+    issuer: "Packt - Coursera",
+    date: "26 Jul 2026",
+    description: "Completed a Packt course covering Python fundamentals for DevOps workflows, automation scripting, and practical DevOps engineering practices through Coursera.",
+    skills: ["Python", "DevOps", "Automation", "Scripting"],
+    previewImage: PythonDevOpsPreview,
+    credentialUrl: "https://www.coursera.org/account/accomplishments/verify/0DCXE6RLLZXM",
+    dad: "1900",
+  },
+  {
+    id: 20,
+    title: "Master Full-Stack Web Development with Laravel & PHP",
+    issuer: "Board Infinity - Coursera",
+    date: "24 Jul 2026",
+    description: "Completed a Board Infinity course covering full-stack web development with Laravel and PHP, including backend architecture, frontend integration, and modern web application practices through Coursera.",
+    skills: ["Laravel", "PHP", "Full-Stack", "Web Development"],
+    previewImage: LaravelPhpPreview,
+    credentialUrl: "https://www.coursera.org/account/accomplishments/verify/9XUQ4UL1HZ09",
+    dad: "2000",
   },
 ];
 
